@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Person from './Person'
+import Person from './Person/Person'
 import './App.css';
 
 class App extends Component {
@@ -36,7 +36,7 @@ changeNameHandler = (event) => {
   render() {
     return (
       <div className="App">
-      <h1>Hi, I am react app!</h1>
+      <h1>Hi, I am React App!</h1>
       <button onClick={this.switchNameHandler} >Switch name</button>
       <Person
         name={this.state.persons[0].name}
