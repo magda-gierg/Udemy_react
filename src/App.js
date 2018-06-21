@@ -12,6 +12,14 @@ class App extends Component {
   }
 switchNameHandler = () => {
 console.log("was clicked!")
+
+this.setState({
+    persons: [
+      {name: "Adam", age: 24},
+      {name: "Julia", age: 4},
+      {name: "Tom", age: 99}
+    ]
+  })
 }
 
   render() {
@@ -19,9 +27,16 @@ console.log("was clicked!")
       <div className="App">
       <h1>Hi, I am react app!</h1>
       <button onClick={this.switchNameHandler} >Switch name</button>
-      <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-      <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>I like ice-cream.</Person>
-      <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+      <Person
+        name={this.state.persons[0].name}
+        age={this.state.persons[0].age}/>
+      <Person
+        name={this.state.persons[1].name}
+        age={this.state.persons[1].age}
+        click={this.switchNameHandler}>I like ice-cream.</Person>
+      <Person
+        name={this.state.persons[2].name}
+        age={this.state.persons[2].age}/>
       </div>
     );
   }
