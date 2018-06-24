@@ -38,24 +38,24 @@ togglePersonsHandler = () => {
 }
 
   render() {
+let persons = null
+if (this.state.showPersons) {
+  persons = (
+    <div>{this.state.persons.map(person => {
+      return <Person
+        name={person.name}
+        age={person.age} />
+        })
+      }
+    </div>
+  )
+}
+
     return (
       <div className="App">
-      <h1>Hi, I am React App!</h1>
-      <button onClick={this.togglePersonsHandler} >Switch name</button>
-      {this.state.showPersons === true ?
-        <div>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}/>
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, "Max!")}>I like ice-cream.</Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-          changed={this.changeNameHandler}/>
-      </div> : null}
+        <h1>Hi, I am React App!</h1>
+        <button onClick={this.togglePersonsHandler} >Toggle Persons</button>
+        {persons}
       </div>
     );
   }
