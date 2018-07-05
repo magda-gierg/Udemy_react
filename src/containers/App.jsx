@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Radium, {StyleRoot} from 'radium'
 import Persons from '../components/Persons/Persons'
+import Cockpit from '../components/Cockpit/Cockpit'
 import './App.css';
 
 class App extends Component {
@@ -39,38 +40,33 @@ class App extends Component {
 
   render() {
 
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
+    // const style = {
+    //   backgroundColor: 'green',
+    //   color: 'white',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer'
+    // }
 
     let persons = null
     if (this.state.showPersons) {
-      persons = (
-        <div>
-          <Persons
+      persons = <Persons
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
-            changed={this.changeNameHandler}/>
-      </div>
-    )
-    style.backgroundColor = 'red'
-  }
+            changed={this.changeNameHandler} />
+    }
 
-  return (
+    return (
       <div className="App">
-        <h1>Hi, I am React App!</h1>
-        <button
-          style={style}
-          onClick={this.togglePersonsHandler} >Toggle Persons</button>
+        <Cockpit
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          clicked={this.togglePersonsHandler}/>
         {persons}
       </div>
-  )
-}
+    )
+  }
 }
 
 export default App;
